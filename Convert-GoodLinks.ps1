@@ -1,7 +1,7 @@
 $jsonFile = "GoodLinks-Export-*.json"
 
 if (-not (Test-Path $jsonFile)) {
-    Write-Error "Datei nicht gefunden: $jsonFile"
+    Write-Error "File not found: $jsonFile"
     exit 1
 }
 
@@ -25,5 +25,5 @@ $utf8WithBom = New-Object System.Text.UTF8Encoding $true
 $content     = Get-Content $csvFile -Raw
 [System.IO.File]::WriteAllText($csvFile, $content, $utf8WithBom)
 
-Write-Host "Fertig! CSV (Komma-getrennt + BOM) gespeichert als:" -ForegroundColor Green
+Write-Host "Done! CSV saved as:" -ForegroundColor Green
 Write-Host $csvFile -ForegroundColor Cyan
